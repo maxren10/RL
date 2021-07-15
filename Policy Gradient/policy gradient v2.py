@@ -75,7 +75,7 @@ def finish_episode():
     value_loss = []
     returns = []
     for r in policy.rewards[::-1]:
-        R = r + args.gamma * R
+        R = r + args.gamma * R   #?
         returns.insert(0,R)        # 将R插入到指定的位置0处
     returns = torch.tensor(returns)
     returns = (returns - returns.mean()) / (returns.std() + eps)     # 归一化
